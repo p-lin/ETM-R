@@ -1,13 +1,45 @@
-# ETM-R
-R Package for ETM
+# ETM-R: R Package for the Embedded Topic Model
 
-(This R package is still under development.  The package may or may not be usable in its current state).
+(This R package is still under development)
 
 This is an R package to run ETM, a Python-based package that accompanies the paper titled "Topic Modeling in Embedding Spaces" by Adji B. Dieng, Francisco J. R. Ruiz, and David M. Blei (link: https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00325/96463/Topic-Modeling-in-Embedding-Spaces). 
 
 ETM (embedded topic model) defines words and topics in the same embedding space. The likelihood of a word under ETM is a Categorical whose natural parameter is given by the dot product between the word embedding and its assigned topic's embedding. ETM is a document model that learns interpretable topics and word embeddings and is robust to large vocabularies that include rare words and stop words.
 
-ETM-R provides R users the ability to use ETM without needing to know the Python programming language.  ETM-R provides customized functions in R that are directly translated into Python code to run the ETM.  Installation of ETM-R will also provide a chance to install a version of Python (Miniconda), if a version of Python is not automatically detected on the local machine.
+For the original Python package, please refer to: https://github.com/adjidieng/ETM.
+
+
+# What ETM-R Does:
+
+
+ETM-R provides R users the ability to use ETM without needing to know the Python programming language.  ETM-R provides customized functions in R that are directly translated into Python code to run the ETM. 
+
+ETM-R provides four steps to evaluate words and topics in a corpus.  
+1) Preprocessing: converting a raw text file or corpus into a bag-of-words representation (e.g. tokens and counts).  
+2) Embeddings: fitting word embeddings (numerical representations of text) onto the text.
+3) Modeling: applying the embedded topic model onto the preprocessed corpus and the fitted word embeddings to produce interpretable topics.  
+4) Evaluation: evaluating the topic diversity and coherence of the corpus, and visualizing the top results of the topics.
+
+# Benefits of ETM-R
+1) No prior knowledge of Python.  All of the necessary installations (even installing Python!) and Python scripts are executed in an R console using R functions.
+2) Speed and efficiency.  The original ETM Python code is optimized for speed and efficiency.  As ETM-R is executing the same underlying Python code, users of ETMr will expect the same level of speed and efficiency.
+3) Customizable applications.  ETMr can be applied on any corpus using the convenient R functions provided in this package.
+
+# How to install in R 
+Install the R package using `devtools::install_github`:
+
+```
+   install.packages("devtools")
+   install_github("p-lin/ETM-R")
+```
+Upon installation, ETM-R will detect to see if there is a version of Python available on the local machine.  If not, ETM-R will ask to install Miniconda, a minimal distribution that installs Python.  ETM-R will then install all of the necessary Python packages for the Python-based ETM package.
+
+
+# How to use ETM-R
+1) To start, run the function `start_etm()`, which launches a Python environment that is usable in the R console.
+2) For the preprocessing step, use: `etm_preprocess()`.  
+3) For the embeddings step, use: `etm_embed()`, which uses Word2Vec to fit embeddings to the corpus.  Current embedding methods are skipgrams and continuous bag-of-words (CBOW).  If you are using a corpus with pre-fitted embeddings, ignore this step.
+4) For the modeling step, use: `etm_model()`.
 
 
 
