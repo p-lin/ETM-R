@@ -5,7 +5,9 @@ R Package for ETM
 
 This is an R package to run ETM, a Python-based package that accompanies the paper titled "Topic Modeling in Embedding Spaces" by Adji B. Dieng, Francisco J. R. Ruiz, and David M. Blei (link: https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00325/96463/Topic-Modeling-in-Embedding-Spaces). 
 
+ETM (embedded topic model) defines words and topics in the same embedding space. The likelihood of a word under ETM is a Categorical whose natural parameter is given by the dot product between the word embedding and its assigned topic's embedding. ETM is a document model that learns interpretable topics and word embeddings and is robust to large vocabularies that include rare words and stop words.
 
+ETM-R provides R users the ability to use ETM without needing to know the Python programming language.  ETM-R provides customized functions in R that are directly translated into Python code to run the ETM.  Installation of ETM-R will also provide a chance to install a version of Python (Miniconda), if a version of Python is not automatically detected on the local machine.
 
 
 
