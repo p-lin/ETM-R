@@ -9,8 +9,7 @@ ETM (embedded topic model) defines words and topics in the same embedding space.
 For the original Python package, please refer to: https://github.com/adjidieng/ETM.
 
 
-# What ETM-R Does:
-
+# How ETM-R Works:
 
 ETM-R provides R users the ability to use ETM without needing to know the Python programming language.  ETM-R provides customized functions in R that are directly translated into Python code to run the ETM. 
 
@@ -37,11 +36,12 @@ Upon installation, ETM-R will detect to see if there is a version of Python avai
 
 # How to use ETM-R
 1) To start, run the function `start_etm()`, which launches a Python environment that is usable in the R console.
-2) For the preprocessing step, use: `etm_preprocess()`.  
+2) For the preprocessing step, use: `etm_preprocess()`, which converts the 
 3) For the embeddings step, use: `etm_embed()`, which uses Word2Vec to fit embeddings to the corpus.  Current embedding methods are skipgrams and continuous bag-of-words (CBOW).  If you are using a corpus with pre-fitted embeddings, ignore this step.
-4) For the modeling step, use: `etm_model()`.
+4) For the modeling step, use: `etm_prefit()`, which runs the ETM algorithm on text with the pre-fitted word embeddings from the previous step.
+5) For the evaluation step, use: `etm_evaluate()`, which evaluates perplexity on document completion, topic coherence and topic diversity.  This step also allow visualizations of the embeddings and the topics on a 2-dimensional embeddings space, which would show the distance between the topic of choice and a collection of key words.
 
-
+An alternative method is to use `etm_model()`, which combines the embeddings and modellings steps into a single step.
 
 
 ## Citation
